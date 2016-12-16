@@ -1,0 +1,102 @@
+<!-- box begin -->
+<div class="box alt">
+	<div class="left-top-corner">
+   	<div class="right-top-corner">
+      	<div class="border-top"></div>
+      </div>
+   </div>
+   <div class="border-left">
+   	<div class="border-right">
+      	<div class="inner">
+         	<div class="wrapper"><?php // Check for sales!
+
+// If records are returned, include the view:
+if (mysqli_num_rows($r) > 0) {
+
+	echo '<dl class="special fright">
+		<dt><a href="/shop/sales/">Sale Items</a></dt>';
+
+	// Fetch each item:
+	while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
+		echo '<dd><a href="/shop/sales/#' . $row['sku'] . '" title="View This Product"><img alt="" src="/products/' . $row['image'] . '" /><span>' . $row['sale_price'] . '</span></a></dd>';
+	}
+
+	echo '</dl>';
+
+} // End of mysqli_num_rows() IF.
+?>
+               <h2>Welcome to T-shirts & Whatever!</h2>
+               <p>We're so glad you made it. Have a seat. Let me get you a fresh, hot cup o' Joe. Cream and sugar? There you go.</p>
+               <p>Please use the links at the top to browse through our catalog. If you've been here before, you can find things you bookmarked by clicking on your Wish List and Cart links. </p>
+         	</div>
+         </div>
+      </div>
+   </div>
+   <div class="left-bot-corner">
+   	<div class="right-bot-corner">
+      	<div class="border-bot"></div>
+      </div>
+   </div>
+</div>
+<!-- box end -->
+<!-- box begin -->
+<div class="box">
+	<div class="left-top-corner">
+   	<div class="right-top-corner">
+      	<div class="border-top"></div>
+      </div>
+   </div>
+   <div class="border-left">
+   	<div class="border-right">
+      	<div class="inner">
+         	<h3>About Clever Coffee, Inc.</h3>
+         	<p>Clever Coffee, Inc. has been selling coffee online since 1923. For years, Clever Coffee, Inc. failed to make a profit, due to the lack of computers and the Internet. Yadda, yadda, yadda.</p>
+         	<p>It's safe to shop here, promise!</p>
+      </div>
+      </div>
+   </div>
+   <div class="left-bot-corner">
+   	<div class="right-bot-corner">
+      	<div class="border-bot"></div>
+      </div>
+   </div>
+</div>
+<!-- box end -->
+<br />
+<div class="box">
+	<div class="left-top-corner">
+   	<div class="right-top-corner">
+      	<div class="border-top"></div>
+      </div>
+   </div>
+   <div class="border-left">
+   	<div class="border-right">
+      	<div class="inner">
+	      	<?php
+	      	if(isset($thanks_chump) && $thanks_chump == true) {
+		      	echo '<h3>Newsletter</h3>';
+			  	echo '<p>Thanks for the email address chump, I hope you really enjoy spam.</p>';
+         		echo '<p>R.I.P. ' . $_POST["firstname"] . 's inbox.</p>';
+		    } else {
+			include ('./includes/form_functions.inc.php');
+         	echo '<h3>Newsletter</h3>';
+         	echo '<p>Sign up for our newsletter and we will spam your email as well as sell it to other spam marketers.</p>';
+         	echo '<p>Its the only way we actually make money around here.</p>';
+         	echo '<form method="post" action="index.php">';
+
+         	echo '<div class="field"><label for="firstname"><strong>First Name </strong></label><br />' . create_form_input('firstname', 'text', $newserror, 'POST') . '</div>';
+		 	echo '<div class="field"><label for="lastname"><strong>Last Name </strong></label><br />' . create_form_input('lastname', 'text', $newserror, 'POST') . '</div>';
+		 	echo '<div class="field"><label for="firstname"><strong>Email </strong></label><br />' . create_form_input('email', 'text', $newserror, 'POST') . '</div>';
+		 	echo '<br />';
+		 	echo '<div align="center" id="submit"><input type="submit" value="Spam me lots!" class="button" /></div>';
+         	echo '</form>';
+         	} ?>
+      </div>
+      </div>
+   </div>
+   <div class="left-bot-corner">
+   	<div class="right-bot-corner">
+      	<div class="border-bot"></div>
+      </div>
+   </div>
+</div>
